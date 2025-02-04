@@ -3,11 +3,8 @@ import Dtn from "../assets/company/dtn.png";
 import Mandala from "../assets/company/mandala.png";
 import Bluebird from "../assets/company/bluebird.png";
 
-// Define a type for the icon keys to make it more explicit
-type IconNames = "doo" | "dtn" | "mandala" | "bluebird";
-
 export default function Experience({ data }: any) {
-  const icons: Record<IconNames, string> = {
+  const icons: any = {
     doo: Doo,
     dtn: Dtn,
     mandala: Mandala,

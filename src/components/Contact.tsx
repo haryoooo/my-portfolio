@@ -2,7 +2,7 @@ import LinkedinImg from "../assets/icon/linkedin.png";
 import GithubImg from "../assets/icon/github.png";
 
 export default function Contact({ data }: any) {
-  const InputField = ({ type, placeholder }) => (
+  const InputField = ({ type, placeholder }: any) => (
     <input
       type={type}
       disabled
@@ -26,7 +26,7 @@ export default function Contact({ data }: any) {
             disabled
             placeholder="How can I help?*"
             className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-gray-600"
-            rows="4"
+            rows={4}
           ></textarea>
           <button className="w-full p-3 bg-black text-white font-semibold rounded-md hover:bg-gray-800" disabled>
             Get In Touch
