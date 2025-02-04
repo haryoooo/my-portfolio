@@ -12,16 +12,16 @@ const About = ({ data }: any) => {
             Hello I'm <span className="text-black">{data.name}</span>
           </div>
           
-          <div className="text-xl md:text-4xl font-bold mt-4">
+          <div className="text-xl md:text-4xl font-bold my-4 md:my-8">
             <span className="text-black">Frontend</span>{" "}
             <span className="text-gray-700">Developer</span>
           </div>
           
-          <div className="text-xl md:text-3xl mt-4">
+          <div className="text-xl md:text-3xl my-4 md:my-8">
             Based In <span className="font-bold">{data.citizen}.</span>
           </div>
           
-          <p className="text-sm text-gray-500 mt-5">{data.description}</p>
+          <div className="text-sm text-gray-500">{data.description}</div>
         </div>
 
         {/* Right Image - Full width on mobile, half on desktop */}
