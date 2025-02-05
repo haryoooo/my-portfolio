@@ -12,7 +12,11 @@ export default function Contact({ data }: any) {
   );
 
   return (
-    <div className="text-start">
+    <div
+      data-aos="fade-up"
+      data-aos-anchor-placement="center-bottom"
+      className="text-start"
+    >
       <h2 className="text-3xl text-center md:text-4xl px-4 py-8 mb-0 md:mb-5">
         Contact <span className="font-bold">Me</span>
       </h2>
@@ -28,7 +32,10 @@ export default function Contact({ data }: any) {
             className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-gray-600"
             rows={4}
           ></textarea>
-          <button className="w-full p-3 bg-black text-white font-semibold rounded-md hover:bg-gray-800" disabled>
+          <button
+            className="w-full p-3 bg-black text-white font-semibold rounded-md hover:bg-gray-800"
+            disabled
+          >
             Get In Touch
           </button>
         </div>

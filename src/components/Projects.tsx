@@ -11,7 +11,12 @@ export default function Projects({ data }: any) {
 
         <div className="space-y-24 lg:space-y-32">
           {data?.projects?.map((project: any, idx: number) => (
-            <div key={project.id} className="group">
+            <div
+              data-aos={idx % 2 === 0 ? "fade-right" : "fade-left"}
+              data-aos-anchor-placement="top-bottom"
+              key={project.id}
+              className="group"
+            >
               <div
                 className={`flex flex-col lg:flex-row items-center gap-8 lg:gap-16 ${
                   idx % 2 === 1 ? "lg:flex-row-reverse" : ""

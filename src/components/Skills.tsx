@@ -35,7 +35,12 @@ export default function Skills({ data }: any) {
   };
 
   return (
-    <div className="container mx-auto my-16 md:my-24 lg:my-[100px]">
+    <div
+      data-aos="fade-right"
+      data-aos-delay="300"
+      data-aos-easing="ease-in-out-back"
+      className="container mx-auto my-16 md:my-24 lg:my-[100px]"
+    >
       <div className="text-center">
         <h2 className="text-3xl md:text-4xl font-semibold">
           My <span className="font-bold">Skills</span>
