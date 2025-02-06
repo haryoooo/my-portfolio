@@ -14,7 +14,6 @@ export default function Experience({ data }: any) {
   return (
     <div
       data-aos="zoom-in-up"
-      data-aos-delay="300"
       data-aos-easing="ease-in-out-back"
       className="w-full bg-black md:px-24 py-16 md:py-20"
     >

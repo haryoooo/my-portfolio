@@ -4,7 +4,6 @@ const About = ({ data }: any) => {
   return (
     <div
       data-aos="fade-left"
-      data-aos-delay="300"
       data-aos-easing="ease-in-out-back"
       className="container mx-auto py-10"
     >

@@ -37,7 +37,6 @@ export default function Skills({ data }: any) {
   return (
     <div
       data-aos="fade-right"
-      data-aos-delay="300"
       data-aos-easing="ease-in-out-back"
       className="container mx-auto my-16 md:my-24 lg:my-[100px]"
     >

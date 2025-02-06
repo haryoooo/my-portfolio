@@ -1,5 +1,6 @@
 import ProjectImg from "../assets/projects.png";
 import Redirect from "../assets/icon/export.png";
+import { Tooltip } from "react-tooltip";
 
 export default function Projects({ data }: any) {
   return (
@@ -46,11 +47,18 @@ export default function Projects({ data }: any) {
                   </p>
 
                   <div>
+                    <Tooltip
+                      anchorSelect={`#my-anchor-element`}
+                      place="top-end"
+                    >
+                      {data?.tooltip_projects}
+                    </Tooltip>
                     <a
+                      id={`my-anchor-element`}
                       href={project.url} // Add your link URL here
                       target="_blank" // Opens in new tab
                       rel="noopener noreferrer"
-                      className="inline-flex items-center text-gray-400 hover:text-white transition-colors cursor-pointer"
+                      className="inline-flex items-center text-gray-400 hover:text-white transition-colors cursor-pointer hover:scale-110"
                       aria-label="View project details"
                     >
                       <img src={Redirect} alt={project.title} />

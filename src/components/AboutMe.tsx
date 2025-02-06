@@ -4,7 +4,6 @@ const AboutMe = ({ data }: any) => {
   return (
     <div
       data-aos="fade-right"
-      data-aos-delay="300"
       className="container mx-auto px-4 py-10 md:py-16 text-justify"
     >
       <div className="flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-16">
