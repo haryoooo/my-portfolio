@@ -66,7 +66,7 @@ export default function Header({ dataList, isDarkMode }: any) {
       {/* Mobile Navbar Dropdown */}
       <div
         ref={menuRef}
-        className={`absolute top-10 right-0 text-end w-1/2 rounded-lg p-3 ${isDarkMode ? "bg-gray-700 outline-white" : "bg-white"} shadow-2xl transition-all duration-300 ease-in-out ${
+        className={`absolute top-10 right-0 text-end w-1/2 rounded-lg p-3 ${isDarkMode ? "bg-gray-500 outline-white" : "bg-white"} shadow-2xl transition-all duration-300 ease-in-out ${
           isOpen
             ? "opacity-100 max-h-screen"
             : "opacity-0 max-h-0 overflow-hidden"
