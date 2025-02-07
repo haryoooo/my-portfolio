@@ -21,7 +21,7 @@ const AboutMe = ({ data }: any) => {
           </h2>
 
           <p className="text-sm font-semibold md:text-base lg:text-lg text-gray-400 leading-relaxed">
-            {data.description}
+            {data.description_aboutme}
           </p>
         </div>
       </div>
