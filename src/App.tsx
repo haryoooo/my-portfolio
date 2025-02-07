@@ -36,9 +36,21 @@ function App() {
     });
   }, []);
 
+  const setClassname = () => {
+    const isDarkMode = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+
+    if (isDarkMode) {
+      return "main-bg-dark"
+    } else {
+      return "main-bg"
+    }
+  };
+
   return (
     <SnackbarProvider anchorOrigin={{ vertical: "top", horizontal: "right" }}>
-      <div>
+      <div className={setClassname()}>
         {dataList.length === 0 ? (
           <Loader />
         ) : (

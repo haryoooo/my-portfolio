@@ -1,17 +1,21 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Navbar from "../components/Navbar";
 import Button from "../components/ButtonClick";
 import download from "../assets/icon/download.png";
 import { handleScroll } from "../utils/handleScroll";
-// import { useOutsideClick } from "../utils/useOutsideClick";
+import { useOutsideClick } from "../utils/useOutsideClick";
 
 export default function Header({ dataList }: any) {
   const [isOpen, setIsOpen] = useState(false);
-  // const menuRef = useOutsideClick(() => setIsOpen(false)); // Close menu when clicking outside
+  const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLDivElement>(null);
+
+  // Close menu when clicking outside, but ignore clicks inside the button
+  useOutsideClick(menuRef, () => setIsOpen(false), buttonRef);
 
   return (
     <header className="relative w-full sticky top-0">
-      <div className="flex justify-between items-center my-5 px-5 md:px-[50px] bg-white py-3">
+      <div className="flex justify-between items-center px-5 md:px-[50px] bg-white py-3">
         {/* Logo */}
         <div
           onClick={() => handleScroll("top")}
@@ -22,21 +26,22 @@ export default function Header({ dataList }: any) {
 
         {/* Hamburger Button for Mobile */}
         <div
+          ref={buttonRef} // Exclude clicks inside this button
           className="md:hidden flex flex-col space-y-1 focus:outline-none cursor-pointer hover:scale-110"
           onClick={() => setIsOpen(!isOpen)}
         >
           <span
-            className={`w-6 h-0.5 bg-black transition-transform ${
+            className={`w-6 h-0.5 bg-gray-500 font-bold transition-transform ${
               isOpen ? "rotate-45 translate-y-1.5" : ""
             }`}
           ></span>
           <span
-            className={`w-6 h-0.5 bg-black transition-opacity ${
+            className={`w-6 h-0.5 bg-gray-500 font-bold transition-opacity ${
               isOpen ? "opacity-0" : ""
             }`}
           ></span>
           <span
-            className={`w-6 h-0.5 bg-black transition-transform ${
+            className={`w-6 h-0.5 bg-gray-500 font-bold transition-transform ${
               isOpen ? "-rotate-45 -translate-y-1.5" : ""
             }`}
           ></span>
@@ -58,18 +63,18 @@ export default function Header({ dataList }: any) {
         </div>
       </div>
 
-      {/* Mobile Navbar Dropdown with Animation */}
+      {/* Mobile Navbar Dropdown */}
       <div
-        // ref={menuRef}
-        className={`absolute top-10 left-0 w-full bg-white shadow-lg transition-all duration-300 ease-in-out ${
+        ref={menuRef}
+        className={`absolute top-10 right-0 text-end w-1/2 rounded-lg p-3 bg-white shadow-2xl transition-all duration-300 ease-in-out ${
           isOpen
             ? "opacity-100 max-h-screen"
             : "opacity-0 max-h-0 overflow-hidden"
         } md:hidden`}
       >
         <Navbar />
-        <div className="flex justify-center items-center text-center mb-5">
-          <Button 
+        <div className="flex justify-end items-end text-end mr-3">
+          <Button
             link={dataList?.url_pdf}
             titles={"Resume"}
             url={download}
