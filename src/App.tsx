@@ -15,6 +15,9 @@ import { SnackbarProvider } from "notistack";
 
 function App() {
   const [dataList, setDataList] = useState<any>([]);
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(
+    window?.matchMedia("(prefers-color-scheme: dark)")?.matches
+  );
 
   const fetchData = async () => {
     try {
@@ -34,30 +37,33 @@ function App() {
       offset: 400,
       easing: "ease-in-out-back",
     });
-  }, []);
 
-  const setClassname = () => {
-    const isDarkMode = window.matchMedia(
+    // Listen for dark mode changes
+    const darkModeMediaQuery = window.matchMedia(
       "(prefers-color-scheme: dark)"
-    ).matches;
+    );
 
-    if (isDarkMode) {
-      return "main-bg-dark"
-    } else {
-      return "main-bg"
-    }
-  };
+    const handleDarkModeChange = (event: MediaQueryListEvent) => {
+      setIsDarkMode(event.matches);
+    };
+
+    darkModeMediaQuery.addEventListener("change", handleDarkModeChange);
+
+    return () => {
+      darkModeMediaQuery.removeEventListener("change", handleDarkModeChange);
+    };
+  }, []);
 
   return (
     <SnackbarProvider anchorOrigin={{ vertical: "top", horizontal: "right" }}>
-      <div className={setClassname()}>
+      <div className={isDarkMode ? "main-bg-dark" : "main-bg"}>
         {dataList.length === 0 ? (
           <Loader />
         ) : (
           <>
             {/* Header with high z-index */}
             <div className="sticky top-0 z-50 shadow-md">
-              <Header dataList={dataList} />
+              <Header isDarkMode={isDarkMode} dataList={dataList} />
             </div>
 
             {/* Homeview with lower z-index */}

@@ -3,6 +3,7 @@ import emailjs from "emailjs-com";
 import LinkedinImg from "../assets/icon/linkedin.png";
 import GithubImg from "../assets/icon/github.png";
 import SandLoader from "../assets/icon/loader.gif";
+import TalkImg from "../assets/talk.png";
 import Snackbar from "./Snackbar";
 
 const initialState = {
@@ -98,11 +99,11 @@ export default function Contact({ data }: any) {
         </form>
 
         {/* Contact Info */}
-        <div className="w-full md:w-1/2 mt-8 md:mt-0 md:pl-12 md:text-left space-y-4 mb-5">
-          <h2 className="text-3xl font-bold">
-            Let’s <span className="underline font-extrabold">talk</span> for
+        <div className="w-full md:w-1/2 mt-8 md:mt-0 md:pl-12 md:text-left space-y-4 mb-4 text-black">
+          <h2 className="text-4xl font-extrabold">
+            Let’s <span><img src={TalkImg} alt="talk-img" width={75} className="inline-flex mb-2" /></span> for
           </h2>
-          <h2 className="text-4xl font-bold">Something special</h2>
+          <h2 className="text-4xl font-extrabold">Something special</h2>
           <p className="mt-2 text-gray-600">
             {data?.contact_desc}
           </p>
