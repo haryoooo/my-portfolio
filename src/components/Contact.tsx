@@ -104,7 +104,7 @@ export default function Contact({ data }: any) {
             Let’s <span><img src={TalkImg} alt="talk-img" width={75} className="inline-flex mb-2" /></span> for
           </h2>
           <h2 className="text-4xl font-extrabold">Something special</h2>
-          <p className="mt-2 text-gray-600">
+          <p className="mt-2 font-semibold text-gray-600">
             {data?.contact_desc}
           </p>
           <p className="mt-4 font-semibold">{data?.email}</p>
