@@ -68,7 +68,7 @@ function App() {
 
             {/* Homeview with lower z-index */}
             <div className="relative z-10">
-              <Homeview dataList={dataList} />
+              <Homeview dataList={dataList} isDarkMode={isDarkMode} />
             </div>
           </>
         )}

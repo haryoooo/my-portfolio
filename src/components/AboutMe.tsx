@@ -20,7 +20,7 @@ const AboutMe = ({ data }: any) => {
             About <span className="font-bold">Me</span>
           </h2>
 
-          <p className="text-sm font-semibold md:text-base lg:text-lg text-gray-500 leading-relaxed">
+          <p className="text-sm font-semibold md:text-base lg:text-lg text-gray-400 leading-relaxed">
             {data.description}
           </p>
         </div>

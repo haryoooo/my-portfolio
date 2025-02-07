@@ -29,7 +29,7 @@ const About = ({ data, isDarkMode }: any) => {
             repeat={Infinity}
           />
 
-          <div className="text-sm font-semibold text-gray-500 mt-5">{data?.description}</div>
+          <div className="text-sm font-semibold text-gray-400 mt-5">{data?.description}</div>
         </div>
 
         {/* Right Image - Full width on mobile, half on desktop */}
