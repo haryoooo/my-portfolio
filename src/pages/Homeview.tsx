@@ -21,7 +21,7 @@ export default function Homeview({ dataList, isDarkMode }: any) {
         <AboutMe data={dataList} isDarkMode={isDarkMode} />
       </div>
       <div id="projects" className="bg-black my-5">
-        <Projects data={dataList} isDarkMode={isDarkMode} />
+        <Projects data={dataList} />
       </div>
       <div id="contact" className="px-5 md:px-[50px]">
         <Contact data={dataList} isDarkMode={isDarkMode} />
