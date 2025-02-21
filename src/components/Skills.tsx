@@ -1,14 +1,17 @@
-import Sass from "../assets/skills/sass.png";
 import Next from "../assets/skills/nextjs.png";
-import Reactjs from "../assets/skills/reactjs.png";
 import UnitTest from "../assets/skills/unittest.png";
-import Javascript from "../assets/skills/javascript.png";
 import Typescript from "../assets/skills/typescript.png";
-import Vuejs from "../assets/skills/vuejs.png";
-import Angularjs from "../assets/skills/angularjs.png";
-import Git from "../assets/skills/git.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faVuejs,
+  faAngular,
+  faSass,
+  faReact,
+  faJs,
+  faGit,
+} from "@fortawesome/free-brands-svg-icons";
 
-// Define a type for the icon keys to make it more explicit
+// Define a type for icon names
 type IconNames =
   | "sass"
   | "nextjs"
@@ -20,20 +23,20 @@ type IconNames =
   | "angularjs"
   | "git";
 
-export default function Skills({ data }: any) {
-  // Mapping icon names to imported images
-  const icons: Record<IconNames, string> = {
-    sass: Sass,
-    nextjs: Next,
-    reactjs: Reactjs,
-    unittest: UnitTest,
-    javascript: Javascript,
-    typescript: Typescript,
-    vuejs: Vuejs,
-    angularjs: Angularjs,
-    git: Git,
-  };
+// Update the type to support both FontAwesome icons (objects) and image paths (strings)
+const icons: Record<IconNames, string | any> = {
+  sass: faSass,
+  nextjs: Next,
+  reactjs: faReact,
+  unittest: UnitTest,
+  javascript: faJs,
+  typescript: Typescript,
+  vuejs: faVuejs,
+  angularjs: faAngular,
+  git: faGit,
+};
 
+export default function Skills({ data }: any) {
   return (
     <div
       data-aos="fade-right"
@@ -54,11 +57,20 @@ export default function Skills({ data }: any) {
                          hover:scale-105 lg:hover:scale-110 transition-all duration-300
                          cursor-pointer"
             >
-              <img
-                src={icons[el.icon]}
-                alt={el.name}
-                className="w-10 sm:w-11 lg:w-[50px] h-auto"
-              />
+              {/* Check if the icon is an image path (string) or FontAwesome icon */}
+              {typeof icons[el.icon] === "string" ? (
+                <img
+                  src={icons[el.icon]}
+                  alt={el.name}
+                  className="w-10 sm:w-11 lg:w-[50px] h-auto"
+                />
+              ) : (
+                <FontAwesomeIcon
+                  icon={icons[el.icon]}
+                  className="text-5xl"
+                />
+              )}
+
               <div className="mt-3 md:mt-4 lg:mt-5 text-xs sm:text-sm font-medium">
                 {el.name}
               </div>

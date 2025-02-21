@@ -1,8 +1,39 @@
 import ProjectImg from "../assets/projects.png";
 import Redirect from "../assets/icon/export.png";
 import { Tooltip } from "react-tooltip";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faVuejs,
+  faAngular,
+  faSass,
+  faCss,
+  faReact,
+} from "@fortawesome/free-brands-svg-icons";
 
-export default function Projects({ data }: any) {
+interface Project {
+  id: string | number;
+  description: string;
+  technology: string[]; // Ensure it's an array
+  title: string;
+  url: string;
+}
+
+interface ProjectsProps {
+  data: {
+    projects: Project[];
+    tooltip_projects?: string;
+  };
+}
+
+export default function Projects({ data }: ProjectsProps) {
+  const techStackIcon: Record<string, any> = {
+    vue: faVuejs,
+    angular: faAngular,
+    sass: faSass,
+    css: faCss,
+    react: faReact,
+  };
+
   return (
     <div className="w-full bg-black min-h-screen py-16">
       <div className="container mx-auto px-4 md:px-8 lg:px-24">
@@ -11,7 +42,7 @@ export default function Projects({ data }: any) {
         </h1>
 
         <div className="space-y-24 lg:space-y-32">
-          {data?.projects?.map((project: any, idx: number) => (
+          {data?.projects?.map((project, idx) => (
             <div
               data-aos={idx % 2 === 0 ? "fade-right" : "fade-left"}
               data-aos-anchor-placement="top-bottom"
@@ -46,17 +77,20 @@ export default function Projects({ data }: any) {
                     {project.description}
                   </p>
 
+                  <div className="flex justify-start gap-5">
+                    {project.technology.map((tech) => (
+                      <FontAwesomeIcon style={{ color: "#9CA3AF" }} key={tech} icon={techStackIcon[tech]} />
+                    ))}
+                  </div>
+
                   <div>
-                    <Tooltip
-                      anchorSelect={`#my-anchor-element`}
-                      place="top-end"
-                    >
+                    <Tooltip anchorSelect="#my-anchor-element" place="top-end">
                       {data?.tooltip_projects}
                     </Tooltip>
                     <a
-                      id={`my-anchor-element`}
-                      href={project.url} // Add your link URL here
-                      target="_blank" // Opens in new tab
+                      id="my-anchor-element"
+                      href={project.url}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center text-gray-400 hover:text-white transition-colors cursor-pointer hover:scale-110"
                       aria-label="View project details"

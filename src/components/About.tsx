@@ -23,13 +23,14 @@ const About = ({ data, isDarkMode }: any) => {
             }}
             sequence={[
               `Hello I'm ${data?.name} \n Frontend Developer \nBased In Indonesia`, // actual line-break inside string literal also gets animated in new line, but ensure there are no leading spaces
-              1000,
-              "",
             ]}
-            repeat={Infinity}
+            speed={50} // Adjust speed if needed
+            omitDeletionAnimation={true} // Prevent deletion animation
+            repeat={0} // Ensures it does not loop
           />
-
-          <div className="text-sm font-semibold text-gray-500 mt-5">{data?.description}</div>
+          <div className="text-sm font-semibold text-gray-500 mt-5">
+            {data?.description}
+          </div>
         </div>
 
         {/* Right Image - Full width on mobile, half on desktop */}

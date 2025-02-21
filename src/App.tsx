@@ -57,7 +57,7 @@ function App() {
   return (
     <SnackbarProvider anchorOrigin={{ vertical: "top", horizontal: "right" }}>
       <div className={isDarkMode ? "main-bg-dark" : "main-bg"}>
-        {dataList.length === 0 ? (
+        {dataList?.length === 0 ? (
           <Loader />
         ) : (
           <>
