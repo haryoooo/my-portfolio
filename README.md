@@ -7,6 +7,7 @@ this projects is contain portfolio of my projects and resume. created using reac
 - React
 - Typescript
 - Tailwind
+- Firebase
 - AOS
 - Vite
 ```
