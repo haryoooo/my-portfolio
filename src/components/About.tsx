@@ -17,7 +17,7 @@ const About = ({ data, isDarkMode }: any) => {
               isDarkMode ? "text-white" : "text-black"
             }`}
             style={{
-              lineHeight: 1.8,
+              lineHeight: 1.5,
               whiteSpace: "pre-line",
               display: "block",
             }}
@@ -28,7 +28,7 @@ const About = ({ data, isDarkMode }: any) => {
             omitDeletionAnimation={true} // Prevent deletion animation
             repeat={0} // Ensures it does not loop
           />
-          <div className="text-sm font-semibold text-gray-500 mt-5">
+          <div className="text-sm md:text-lg font-semibold text-gray-500 mt-5">
             {data?.description}
           </div>
         </div>

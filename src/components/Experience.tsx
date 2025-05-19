@@ -44,7 +44,14 @@ export default function Experience({ data }: any) {
                 <div className="text-zinc-400 text-sm">{el.period}</div>
               </div>
               <p className="text-zinc-300 text-left text-sm md:text-base leading-relaxed">
-                {el.description}
+                {el.description.split("\n").map((line: string, index: number) => {
+                  if (line.trim().startsWith("-")) {
+                    return (
+                      <p key={index}>• {line.trim().substring(1).trim()}</p>
+                    );
+                  }
+                  return <p key={index}>{line}</p>;
+                })}
               </p>
             </div>
           ))}
