@@ -36,7 +36,7 @@ const icons: Record<IconNames, string | any> = {
   git: faGit,
 };
 
-export default function Skills({ data }: any) {
+export default function Skills({ data, isDarkMode }: any) {
   return (
     <div
       data-aos="fade-right"
@@ -48,14 +48,16 @@ export default function Skills({ data }: any) {
           My <span className="font-bold">Skills</span>
         </h2>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 lg:gap-10 mt-10 md:mt-12 lg:mt-[70px] justify-items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-10 mt-10 md:mt-12 lg:mt-[70px] justify-items-center">
           {data?.skills?.map((el: { icon: IconNames; name: string }) => (
             <div
               key={el.name}
-              className="border-2 border-black flex flex-col items-center justify-center 
+              className={`border-2 ${
+                isDarkMode ? "border-white" : "border-black"
+              } flex flex-col items-center justify-center 
                          w-[130px] h-[130px] sm:w-[140px] sm:h-[140px] lg:w-[150px] lg:h-[150px]
                          hover:scale-105 lg:hover:scale-110 transition-all duration-300
-                         cursor-pointer"
+                         cursor-pointer`}
             >
               {/* Check if the icon is an image path (string) or FontAwesome icon */}
               {typeof icons[el.icon] === "string" ? (
@@ -65,10 +67,7 @@ export default function Skills({ data }: any) {
                   className="w-10 sm:w-11 lg:w-[50px] h-auto"
                 />
               ) : (
-                <FontAwesomeIcon
-                  icon={icons[el.icon]}
-                  className="text-5xl"
-                />
+                <FontAwesomeIcon icon={icons[el.icon]} className="text-5xl" />
               )}
 
               <div className="mt-3 md:mt-4 lg:mt-5 text-xs sm:text-sm font-medium">

@@ -9,18 +9,18 @@ export const listRoute = [
     title: "Experience",
     path: "#experience",
   },
+  // {
+  //   id: 3,
+  //   title: "About Me",
+  //   path: "#about",
+  // },
   {
     id: 3,
-    title: "About Me",
-    path: "#about",
-  },
-  {
-    id: 4,
     title: "Projects",
     path: "#projects",
   },
   {
-    id: 5,
+    id: 4,
     title: "Contact Me",
     path: "#contact",
   },

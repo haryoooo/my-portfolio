@@ -15,7 +15,7 @@ export default function Header({ dataList, isDarkMode }: any) {
 
   return (
     <header className="relative w-full sticky top-0">
-      <div className={`flex justify-between items-center px-5 md:px-[50px] ${isDarkMode ? "bg-black text-gray-500" : "bg-white"} py-3`}>
+      <div className={`flex justify-between items-center px-5 md:px-[50px] ${isDarkMode ? "bg-transparent text-gray-500" : "bg-white"} py-3`}>
         {/* Logo */}
         <h3
           onClick={() => handleScroll("top")}
