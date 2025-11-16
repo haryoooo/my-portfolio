@@ -9,11 +9,6 @@ export const listRoute = [
     title: "Experience",
     path: "#experience",
   },
-  // {
-  //   id: 3,
-  //   title: "About Me",
-  //   path: "#about",
-  // },
   {
     id: 3,
     title: "Projects",

@@ -1,61 +1,68 @@
-import Doo from "../assets/company/doo.png";
-import Dtn from "../assets/company/dtn.png";
-import Mandala from "../assets/company/mandala.png";
-import Bluebird from "../assets/company/bluebird.png";
+import bluebird from "../assets/company/bluebird.png";
+import doo from "../assets/company/doo.png";
+import dtn from "../assets/company/dtn.png";
+import mandala from "../assets/company/mandala.jpg";
+import { PortfolioData, Experience as ExperienceType } from "../types/portfolioType";
 
-export default function Experience({ data }: any) {
-  const icons: any = {
-    doo: Doo,
-    dtn: Dtn,
-    mandala: Mandala,
-    bluebird: Bluebird,
-  };
+interface ExperienceProps {
+  data: PortfolioData;
+}
+
+export default function Experience({ data }: ExperienceProps) {
+  const icon = {
+    bluebird: bluebird,
+    doo: doo,
+    dtn: dtn,
+    mandala: mandala,
+  }
 
   return (
-    <div
-      data-aos="zoom-in-up"
-      data-aos-easing="ease-in-out-back"
-      className="w-full bg-black md:px-24 py-16 md:py-20"
-    >
-      <div className="container mx-auto px-4 md:px-6">
-        <h2 className="text-3xl md:text-4xl text-white text-center mb-8 md:mb-12">
-          My <span className="font-bold">Experience</span>
-        </h2>
+    <div className="py-8 md:py-12">
+      <h2 className="text-2xl md:text-3xl font-bold text-black mb-6 md:mb-8 font-mono tracking-wider">EXPERIENCE</h2>
 
-        <div className="space-y-4 md:space-y-6 text-left">
-          {[...(data?.experience || [])].reverse()?.map((el, index) => (
-            <div
-              key={index}
-              className="rounded-lg p-8 md:p-6 border border-gray hover:bg-zinc-800 transition-colors"
-            >
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-4 mb-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 md:w-10 md:h-10 flex-shrink-0 rounded overflow-hidden">
-                    <img
-                      src={icons[el.icon]}
-                      alt={el.company}
-                      className="w-20 sm:w-21 lg:w-[40px] h-auto"
-                    />
-                  </div>
-                  <h3 className="text-white text-base md:text-lg font-semibold">
-                    {data?.occupation} at {el.company}
+      <div className="space-y-8">
+        {[...(data?.experience || [])].reverse()?.map((el: ExperienceType, index: number) => (
+          <div key={index} className="border-b border-gray-200 pb-6 last:border-b-0">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+              <div className="flex items-start gap-3">
+                {el.icon && (
+                  <img 
+                    src={icon?.[el.icon as keyof typeof icon]} 
+                    alt={el.company || "Company logo"} 
+                    className={`md:w-12 md:h-12 flex-shrink-0 object-contain ${index > 1 ? "w-10 h-10 md:w-12 md:h-12" : "w-9 h-9 md:w-9 md:h-9"}`}
+                  />
+                )}
+                <div>
+                  <h3 className="text-xl md:text-2xl font-semibold text-black mb-1">
+                    {el.title || data?.occupation || "Frontend Engineer"}
                   </h3>
+                  <div className="flex items-center gap-2 text-[#7d7d7d] font-mono">
+                    <span className="uppercase">{el.company}</span>
+                    <span>·</span>
+                    <span>{el.period}</span>
+                  </div>
                 </div>
-                <div className="text-zinc-400 text-sm">{el.period}</div>
               </div>
-              <p className="text-zinc-300 text-left text-sm md:text-base leading-relaxed">
-                {el.description.split("\n").map((line: string, index: number) => {
-                  if (line.trim().startsWith("-")) {
-                    return (
-                      <p key={index}>• {line.trim().substring(1).trim()}</p>
-                    );
-                  }
-                  return <p key={index}>{line}</p>;
-                })}
-              </p>
             </div>
-          ))}
-        </div>
+            <ul className="mt-4 space-y-2 text-[#7d7d7d] ml-[60px]">
+              {el.description.split("\n").map((line: string, idx: number) => {
+                const trimmedLine = line.trim();
+                if (trimmedLine.startsWith("-") || trimmedLine.startsWith("*")) {
+                  return (
+                    <li key={idx} className="list-disc list-inside">
+                      {trimmedLine.substring(1).trim()}
+                    </li>
+                  );
+                }
+                return trimmedLine ? (
+                  <li key={idx} className="list-disc list-inside">
+                    {trimmedLine}
+                  </li>
+                ) : null;
+              })}
+            </ul>
+          </div>
+        ))}
       </div>
     </div>
   );
