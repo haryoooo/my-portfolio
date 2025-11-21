@@ -17,8 +17,8 @@ export default function Experience({ data }: ExperienceProps) {
   }
 
   return (
-    <div className="py-8 md:py-12">
-      <h2 className="text-2xl md:text-3xl font-bold text-black mb-6 md:mb-8 font-mono tracking-wider">EXPERIENCE</h2>
+    <div className="border border-gray-200 -mx-5 px-5 md:mx-0 md:px-6 py-8 md:py-12">
+      <h2 className="text-lg md:text-xl font-medium text-black mb-6 md:mb-8 font-mono tracking-wider">EXPERIENCE</h2>
 
       <div className="space-y-8">
         {[...(data?.experience || [])].reverse()?.map((el: ExperienceType, index: number) => (
@@ -36,7 +36,7 @@ export default function Experience({ data }: ExperienceProps) {
                   <h3 className="text-xl md:text-2xl font-semibold text-black mb-1">
                     {el.title || data?.occupation || "Frontend Engineer"}
                   </h3>
-                  <div className="flex items-center gap-2 text-[#7d7d7d] font-mono">
+                  <div className="flex items-center gap-2 text-[#7d7d7d] text-sm font-mono">
                     <span className="uppercase">{el.company}</span>
                     <span>·</span>
                     <span>{el.period}</span>
@@ -44,7 +44,7 @@ export default function Experience({ data }: ExperienceProps) {
                 </div>
               </div>
             </div>
-            <ul className="mt-4 space-y-2 text-[#7d7d7d] ml-[60px]">
+            <ul className="mt-4 space-y-2 text-[#7d7d7d] ml-[52px]">
               {el.description.split("\n").map((line: string, idx: number) => {
                 const trimmedLine = line.trim();
                 if (trimmedLine.startsWith("-") || trimmedLine.startsWith("*")) {

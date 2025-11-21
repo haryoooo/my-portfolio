@@ -5,10 +5,16 @@ import Projects from "../components/Projects";
 import Education from "../components/Education";
 import Certifications from "../components/Certifications";
 import Skills from "../components/Skills";
+import SkillsImages from "../components/SkillsImages";
 import Languages from "../components/Languages";
 import Contact from "../components/Contact";
+import { PortfolioData } from "../types/portfolioType";
 
-export default function Homeview({ dataList }: any) {
+interface HomeviewProps {
+  dataList: PortfolioData;
+}
+
+export default function Homeview({ dataList }: HomeviewProps) {
   return (
     <div className="max-w-4xl mx-auto px-5 md:px-[50px]">
       <Profile data={dataList} />
@@ -18,6 +24,7 @@ export default function Homeview({ dataList }: any) {
       <Education data={dataList} />
       <Certifications data={dataList} />
       <Skills data={dataList} />
+      <SkillsImages />
       <Languages data={dataList} />
       <Contact data={dataList} />
     </div>

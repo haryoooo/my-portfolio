@@ -1,7 +1,13 @@
-export default function Contact({ data }: any) {
+import { PortfolioData } from "../types/portfolioType";
+
+interface ContactProps {
+  data?: PortfolioData;
+}
+
+export default function Contact({ data }: ContactProps) {
   return (
-    <div className="py-8 md:py-12">
-      <h2 className="text-2xl md:text-3xl font-bold text-black mb-6 md:mb-8 font-mono tracking-wider">CONTACT</h2>
+    <div className="border border-gray-200 -mx-5 px-5 md:mx-0 md:px-6 py-8 md:py-12">
+      <h2 className="text-lg md:text-xl font-medium text-black mb-6 md:mb-8 font-mono tracking-wider">CONTACT</h2>
 
       <div className="space-y-4">
         <div className="flex items-center justify-between">
@@ -22,7 +28,7 @@ export default function Contact({ data }: any) {
             rel="noopener noreferrer"
             className="block text-black hover:underline mt-1"
           >
-            {data?.url_linkedin || "in/haryo-novianto-1268bb151/"}
+            {data?.url_linkedin}
           </a>
         </div>
 
@@ -34,7 +40,7 @@ export default function Contact({ data }: any) {
             rel="noopener noreferrer"
             className="block text-black hover:underline mt-1"
           >
-            {data?.url_github || "https://github.com/haryoooo"}
+            {data?.url_github}
           </a>
         </div>
       </div>
