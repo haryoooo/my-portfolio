@@ -1,5 +1,8 @@
-import HeaderImage from "../assets/haryo-img.jpg";
-import { PortfolioData, Experience as ExperienceType } from "../types/portfolioType";
+import HeaderImage from '../assets/haryo-img.jpg';
+import {
+  PortfolioData,
+  Experience as ExperienceType,
+} from '../types/portfolioType';
 
 interface ProfileProps {
   data?: PortfolioData;
@@ -13,28 +16,30 @@ export default function Profile({ data }: ProfileProps) {
       : null;
 
   return (
-    <div className="border border-gray-200 -mx-5 px-5 md:mx-0 md:px-6 py-8 md:py-12">
-      <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8">
-      {/* Profile Image */}
-      <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden flex-shrink-0">
-        <img
-          src={HeaderImage}
-          alt={data?.name || "Profile"}
-          className="w-full h-full object-cover object-top"
-        />
-      </div>
+    <div id="home" data-aos="fade-left">
+      <div className="border border-gray-200 -mx-5 px-5 md:mx-0 md:px-6 py-8 md:py-12">
+        <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8">
+          {/* Profile Image */}
+          <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden flex-shrink-0">
+            <img
+              src={HeaderImage}
+              alt={data?.name || 'Profile'}
+              className="w-full h-full object-cover object-top"
+            />
+          </div>
 
-        {/* Name and Title */}
-        <div>
-          <h1 className="text-3xl md:text-4xl font-bold text-black mb-2">
-            {data?.name || "Haryo Novianto"}
-          </h1>
-          <h2 className="text-lg md:text-xl text-gray-600">
-            {data?.occupation || "Frontend Engineer"} at {currentExperience?.company || "Bluebird Group"}
-          </h2>
+          {/* Name and Title */}
+          <div>
+            <h1 className="text-3xl md:text-4xl font-bold text-black mb-2">
+              {data?.name || 'Haryo Novianto'}
+            </h1>
+            <h2 className="text-lg md:text-xl text-gray-600">
+              {data?.occupation || 'Frontend Engineer'} at{' '}
+              {currentExperience?.company || 'Bluebird Group'}
+            </h2>
+          </div>
         </div>
       </div>
     </div>
   );
 }
-

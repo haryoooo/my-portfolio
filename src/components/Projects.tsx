@@ -7,15 +7,16 @@ interface ProjectsProps {
 
 export default function Projects({ data }: ProjectsProps) {
   return (
-    <div className="border border-gray-200 -mx-5 px-5 md:mx-0 md:px-6 py-8 md:py-12">
+    <div id="projects" className="border border-gray-200 -mx-5 px-5 md:mx-0 md:px-6 py-8 md:py-12">
       <h2 className="text-lg md:text-xl font-medium text-black mb-6 md:mb-8 font-mono">
         PROJECTS
       </h2>
 
       <div className="space-y-6">
-        {data?.projects?.map((project: Project) => (
+        {data?.projects?.map((project: Project, index: number) => (
           <div
             key={project.id}
+            data-aos={`fade-${index % 2 === 0 ? 'left' : 'right'}`}
             className="border-b border-gray-200 pb-6 last:border-b-0"
           >
             <div className="flex flex-row justify-between sm:flex-row sm:justify-between gap-5 mb-2">

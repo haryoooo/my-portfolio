@@ -10,8 +10,8 @@ export default function Certifications({ data }: CertificationsProps) {
       <h2 className="text-lg md:text-xl font-medium text-black mb-6 md:mb-8 font-mono tracking-wider">CERTIFICATIONS</h2>
 
       <div className="space-y-4">
-        {data?.certifications?.map((cert: CertificationType) => (
-          <div key={`${cert.title}-${cert.year}`} className="space-y-2">
+        {data?.certifications?.map((cert: CertificationType, index: number) => (
+          <div key={`${cert.title}-${cert.year}`} data-aos={`fade-${index % 2 === 0 ? 'left' : 'right'}`} className="space-y-2">
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
               <h3 className="text-lg md:text-xl font-semibold text-black">
                 {cert.title}
