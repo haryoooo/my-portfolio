@@ -24,7 +24,7 @@ export default function SkillsImages() {
   ];
 
   return (
-    <div data-aos="fade-left" className="border border-gray-200 -mx-5 px-5 md:mx-0 md:px-6 py-8 md:py-12">
+    <div data-aos="fade-left" className="border border-gray-200 -mx-4 px-4 md:mx-0 md:px-6 py-8 md:py-12">
       <div ref={constraintsRef} className="relative h-[120px]">
         <div className="flex flex-wrap gap-6 items-start">
           {skills.map((skill) => (

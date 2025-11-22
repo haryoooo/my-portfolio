@@ -21,16 +21,15 @@ body {
 }
 
 .navbar-icon {
-  width: 28px !important;
-  height: 28px !important;
+  width: 26px !important;
+  height: 26px !important;
+  min-width: 26px !important;
+  min-height: 26px !important;
+  max-width: 26px !important;
+  max-height: 26px !important;
   display: block;
   flex-shrink: 0;
-}
-
-@media (max-width: 768px) {
-  .navbar-icon {
-    width: 20px !important;
-    height: 20px !important;
-  }
+  object-fit: contain;
+  object-position: center;
 }
 

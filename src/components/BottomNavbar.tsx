@@ -29,6 +29,19 @@ export default function BottomNavbar() {
                   src={el.icon}
                   alt={el.title}
                   className="navbar-icon"
+                  width={26}
+                  height={26}
+                  style={{
+                    width: '26px',
+                    height: '26px',
+                    minWidth: '26px',
+                    minHeight: '26px',
+                    maxWidth: '26px',
+                    maxHeight: '26px',
+                    objectFit: 'contain',
+                    display: 'block',
+                    flexShrink: 0
+                  }}
                 />
               </button>
             </motion.div>

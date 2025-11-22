@@ -17,7 +17,7 @@ export default function Experience({ data }: ExperienceProps) {
   }
 
   return (
-    <div id="experience" className="border border-gray-200 -mx-5 px-5 md:mx-0 md:px-6 py-8 md:py-12">
+    <div id="experience" className="border border-gray-200 -mx-4 px-4 md:mx-0 md:px-6 py-8 md:py-12">
       <h2 className="text-lg md:text-xl font-medium text-black mb-6 md:mb-8 font-mono tracking-wider">EXPERIENCE</h2>
 
       <div className="space-y-8">
@@ -44,23 +44,24 @@ export default function Experience({ data }: ExperienceProps) {
                 </div>
               </div>
             </div>
-            <ul className="mt-4 space-y-2 text-[#7d7d7d] ml-[52px]">
+            <div className="mt-4 space-y-2 text-[#7d7d7d] ml-[45px]">
               {el.description.split("\n").map((line: string, idx: number) => {
                 const trimmedLine = line.trim();
                 if (trimmedLine.startsWith("-") || trimmedLine.startsWith("*")) {
                   return (
-                    <li key={idx} className="list-disc list-inside">
-                      {trimmedLine.substring(1).trim()}
-                    </li>
+                    <div key={idx} className="flex">
+                      <span className="mr-2">•</span>
+                      <span className="flex-1">{trimmedLine.substring(1).trim()}</span>
+                    </div>
                   );
                 }
                 return trimmedLine ? (
-                  <li key={idx} className="list-disc list-inside">
+                  <p key={idx} className="ml-7">
                     {trimmedLine}
-                  </li>
+                  </p>
                 ) : null;
               })}
-            </ul>
+            </div>
           </div>
         ))}
       </div>

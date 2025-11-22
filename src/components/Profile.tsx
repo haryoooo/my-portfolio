@@ -17,7 +17,7 @@ export default function Profile({ data }: ProfileProps) {
 
   return (
     <div id="home" data-aos="fade-left">
-      <div className="border border-gray-200 -mx-5 px-5 md:mx-0 md:px-6 py-8 md:py-12">
+      <div className="border border-gray-200 -mx-4 px-4 md:mx-0 md:px-6 py-8 md:py-12">
         <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8">
           {/* Profile Image */}
           <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden flex-shrink-0">
