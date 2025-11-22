@@ -25,14 +25,46 @@ export default function Header() {
   }, []);
 
   return (
-    <div data-aos="fade-up" className="border border-gray-200 -mx-5 px-5 md:mx-0 md:px-6 py-2 md:py-4">
+    <div data-aos="fade-up" className="border border-gray-200 -mx-4 px-4 md:mx-0 md:px-6 py-2 md:py-4">
       <div className="flex justify-between items-center gap-4 text-md text-gray-600">
         <div className="flex justify-center items-center gap-2">
-          <img src={PinIcon} width={20} height={20} alt="pin" />
+          <img 
+            src={PinIcon} 
+            width={20} 
+            height={20} 
+            alt="pin"
+            style={{
+              width: '20px',
+              height: '20px',
+              minWidth: '20px',
+              minHeight: '20px',
+              maxWidth: '20px',
+              maxHeight: '20px',
+              objectFit: 'contain',
+              display: 'block',
+              flexShrink: 0
+            }}
+          />
           <span>Jakarta, Indonesia</span>
         </div>
         <div className="flex justify-center items-center gap-2">
-          <img src={ClockIcon} width={20} height={20} alt="clock" />
+          <img 
+            src={ClockIcon} 
+            width={20} 
+            height={20} 
+            alt="clock"
+            style={{
+              width: '20px',
+              height: '20px',
+              minWidth: '20px',
+              minHeight: '20px',
+              maxWidth: '20px',
+              maxHeight: '20px',
+              objectFit: 'contain',
+              display: 'block',
+              flexShrink: 0
+            }}
+          />
           <span>{currentTime}</span>
         </div>
       </div>

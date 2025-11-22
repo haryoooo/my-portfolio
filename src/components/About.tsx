@@ -7,7 +7,7 @@ interface AboutProps {
 const About = ({ data }: AboutProps) => {
   return (
     <div data-aos="fade-up">
-      <div className="border border-gray-200 -mx-5 px-5 md:mx-0 md:px-6 py-8 md:py-12">
+      <div className="border border-gray-200 -mx-4 px-4 md:mx-0 md:px-6 py-8 md:py-12">
         <h2 className="text-lg md:text-xl font-medium text-black mb-4 font-mono tracking-wider">
           ABOUT
         </h2>
