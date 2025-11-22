@@ -1,4 +1,11 @@
-export default function ButtonClick({ titles, url, width, link }: any) {
+interface ButtonClickProps {
+  titles: string;
+  url: string;
+  width?: number | string;
+  link: string;
+}
+
+export default function ButtonClick({ titles, url, width, link }: ButtonClickProps) {
   return (
     <div
       className="flex justify-start 

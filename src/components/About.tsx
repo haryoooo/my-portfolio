@@ -1,47 +1,20 @@
-import { TypeAnimation } from "react-type-animation";
-import HeaderImage from "../assets/haryo-img.jpg";
+import { PortfolioData } from '../types/portfolioType';
 
-const About = ({ data, isDarkMode }: any) => {
+interface AboutProps {
+  data?: PortfolioData;
+}
+
+const About = ({ data }: AboutProps) => {
   return (
-    <div
-      data-aos="fade-left"
-      data-aos-easing="ease-in-out-back"
-      className="py-10"
-    >
-      <div className="flex flex-col-reverse md:flex-row md:justify-between md:items-center gap-8">
-        {/* Left Content */}
-        <div className="w-full md:w-1/2 md:text-left text-justify">
-          <TypeAnimation
-            className={`text-2xl md:text-5xl font-bold ${
-              isDarkMode ? "text-white" : "text-black"
-            }`}
-            style={{
-              lineHeight: 1.5,
-              whiteSpace: "pre-line",
-              display: "block",
-            }}
-            sequence={[
-              `Hello I'm ${data?.name}\nFrontend Developer\nBased In Indonesia`,
-            ]}
-            speed={50}
-            omitDeletionAnimation
-            repeat={0}
-          />
-          <div className="text-sm md:text-lg font-semibold text-gray-500 mt-5">
-            {data?.description}
-          </div>
-        </div>
-
-        {/* Right Image */}
-        <div className="w-full md:w-1/2 flex justify-center">
-          <div className="w-64 h-64 md:w-96 md:h-96 rounded-full overflow-hidden shadow-lg border-4 border-white/20">
-            <img
-              src={HeaderImage}
-              alt="Haryo Novianto"
-              className="w-full h-full object-cover object-top"
-            />
-          </div>
-        </div>
+    <div data-aos="fade-up">
+      <div className="border border-gray-200 -mx-5 px-5 md:mx-0 md:px-6 py-8 md:py-12">
+        <h2 className="text-lg md:text-xl font-medium text-black mb-4 font-mono tracking-wider">
+          ABOUT
+        </h2>
+        <p className="text-gray-700 leading-relaxed text-base md:text-lg">
+          {data?.description ||
+            "I'm Frontend engineer with 3+ years of experience across diverse industries including Health and wellness, IT Consultant, Finance, and Transportation. Currently working on Bluebird Group as Frontend Engineer. I specialize in creating interactive user interfaces, translate requirement of business into an apps and optimizing performance of applications"}
+        </p>
       </div>
     </div>
   );
