@@ -22,7 +22,7 @@ export default function Certifications({ data }: CertificationsProps) {
             data-aos={`fade-${index % 2 === 0 ? 'left' : 'right'}`}
             className="space-y-2"
           >
-            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between">
+            <div className="flex flex-row justify-between sm:flex-row sm:items-start sm:justify-between">
               <div>
                 <h3 className="text-lg md:text-xl font-semibold text-black">
                   {cert.title}
